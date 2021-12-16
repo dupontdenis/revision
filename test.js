@@ -39,6 +39,13 @@ const nbArtByCat = data.reduce((a, { cat }) => {
 }, {});
 // console.log(nbArtByCat);
 
+// nb d'articles / catégorie
+const nbArtByCat_V2 = data.reduce((a, { cat }) => {
+    a[cat] = (a[cat] || 0 ) + 1
+    return a;
+}, {});
+//console.log(nbArtByCat_V2);
+
 // la catégorie avec le plus de produit
 const max = Object.entries(nbArtByCat).sort( (catA,catB) => catA[1] > catB[1] ? -1 : 1)[0];
 //console.log(max);
@@ -49,7 +56,7 @@ const artByCat = data.reduce((a, { cat, nom }) => {
     a[cat].push(nom)
     return a;
 }, []);
-console.log(artByCat);
+//console.log(artByCat);
 
  // articles / prix
 const prixByCat = data.reduce((a, { cat, prix }) => {
@@ -64,6 +71,14 @@ const addition = Object.entries(prixByCat).map(([cat, prix]) => {
         total: prix.reduce( (acc,cur) => acc+cur )
     }
 })
-//console.log(JSON.stringify(addition))
+console.log(JSON.stringify(addition))
+
+// article/total
+//version direct
+const totalByCat = data.reduce((a, { cat, prix }) => {
+    a[cat] = (a[cat] || 0) + prix;
+    return a;
+}, {} );
+//console.log(totalByCat)
 
 //console.log(addition.reduce( (acc, {total}) => acc+total,0 ) )
