@@ -15,6 +15,13 @@ const sort = data.sort((articleA, articleB) => articleA.nom > articleB.nom ? 1 :
 const legumes = data.filter(({ cat }) => cat.toLowerCase() == "legume")
 // console.log(legumes);
 
+//en parametre PAS DE F(X) FLECHEE
+const myCat = { cat : "Legume" }
+
+const test = data.filter( function({ cat }) {
+  return (cat.toLowerCase() == this.cat.toLowerCase()) }, myCat)
+
+
 const facture = data.reduce( (acc, {prix}) => acc+prix,0 );
 //console.log(facture.toLocaleString("fr-FR", { style: "currency", currency: "EUR" }))
 
