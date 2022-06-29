@@ -32,6 +32,11 @@ categories = data.reduce((acc, { cat }) => {
 }, []);
 // console.log(categories)
 
+// const categories = Array.from(data.reduce((acc, { cat }) => {
+// 	    acc.add(cat);
+//     return acc
+// 	}, new Set()));
+
 // nb d'articles / catégorie
 const nbArtByCat = data.reduce((a, { cat }) => {
     (!a[cat]) ? a[cat] = 1 : a[cat] += 1
