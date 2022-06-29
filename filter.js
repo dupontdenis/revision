@@ -48,5 +48,5 @@ const data = [
 
 const myCat = { cat : "Legume" }
 
-const test = data.filter( function({ cat }) {
-  return (cat.toLowerCase() == this.cat.toLowerCase()) }, myCat)
+const test = data.filter( function( { cat } ) {
+  return ( cat.toLowerCase() == this.cat.toLowerCase()) }, myCat) // this = myCat
